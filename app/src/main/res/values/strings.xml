@@ -3,4 +3,7 @@
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
     <string name="login">Log In</string>
+    <string name="uhid">Enter students UHId here </string>
+    <string name="uhid_hint">10 Digit Unique Number</string>
+    <string name="fetch_btn">Fetch</string>
 </resources>
