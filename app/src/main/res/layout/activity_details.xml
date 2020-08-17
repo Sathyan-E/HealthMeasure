@@ -34,50 +34,56 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
+            android:id="@+id/student_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Name:" />
 
         <TextView
+            android:id="@+id/student_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Class:" />
 
         <TextView
+            android:id="@+id/student_rollno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Roll No:" />
 
         <TextView
+            android:id="@+id/student_genere"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="sex:" />
 
         <TextView
+            android:id="@+id/student_dob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="DOB:" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/student_blood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Blood Type:" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/student_father"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Father Name" />
 
         <TextView
+            android:id="@+id/student_mother"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
