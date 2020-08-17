@@ -57,7 +57,13 @@ class DetailsActivity : AppCompatActivity() {
 
 
     fun updateUi(x:BasicDetails){
-
-
+        student_name.text=x.sName
+        student_class.text=x.sClass
+        student_dob.text=x.sDob
+        student_blood.text=x.sBlood
+        student_genere.text=x.sSex
+        student_father.text=x.sFatherName
+        student_mother.text=x.sMotherName
+        student_rollno.text=x.sRollNumber
     }
 }
