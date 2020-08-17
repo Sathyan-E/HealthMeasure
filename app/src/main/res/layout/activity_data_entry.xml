@@ -47,6 +47,7 @@
                 android:text="Height" />
 
             <EditText
+                android:id="@+id/height_entry_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
@@ -68,6 +69,7 @@
                 android:text="weight" />
 
             <EditText
+                android:id="@+id/weight_entry_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
@@ -89,6 +91,7 @@
                 android:text="Blood Pressure" />
 
             <EditText
+                android:id="@+id/bpressure_entry_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -109,6 +112,7 @@
                 android:text="Temperature" />
 
             <EditText
+                android:id="@+id/temperature_entry_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
@@ -130,6 +134,7 @@
                 android:text="Pulse " />
 
             <EditText
+                android:id="@+id/pulse_entry_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
