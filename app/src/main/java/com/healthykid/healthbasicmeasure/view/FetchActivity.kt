@@ -32,6 +32,13 @@ class FetchActivity : AppCompatActivity() {
 
         fetch_details_btn.setOnClickListener {
             val uhId=student_uhid_ed.text.toString()
+            if (uhId.length>11){
+                val intent=Intent(this,DetailsActivity::class.java)
+                intent.putExtra("id",uhId)
+                startActivity(intent)
+            }else{
+                student_uhid_ed.error="Enter valid UhId"
+            }
           /**
            ref.child("Students").child(uhId).addListenerForSingleValueEvent(object :
                 ValueEventListener {
@@ -63,8 +70,7 @@ class FetchActivity : AppCompatActivity() {
         **/
 
 
-            val intent=Intent(this,DetailsActivity::class.java)
-            intent.putExtra("id",uhId)
+
            /**
             intent.putExtra("name",sName)
             intent.putExtra("class",sClass)
@@ -74,7 +80,7 @@ class FetchActivity : AppCompatActivity() {
             intent.putExtra("mothername",sMotherName)
             intent.putExtra("rollno",sRn)
             intent.putExtra("sex",sSex)**/
-            startActivity(intent)
+
         }
     }
 }
