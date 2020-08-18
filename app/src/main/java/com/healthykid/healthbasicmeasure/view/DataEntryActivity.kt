@@ -17,17 +17,24 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class DataEntryActivity : AppCompatActivity() {
-    private lateinit var ref:DatabaseReference
+    private var studentId:String=""
+    private var studentName:String=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_entry)
         val viewmdel=ViewModelProvider(this).get(DataEntryActivityViewModel::class.java)
 
-        ref=FirebaseDatabase.getInstance().reference.child("BasicHealthInfo").child("999-9999-9991")
+      //  ref=FirebaseDatabase.getInstance().reference.child("BasicHealthInfo").child("999-9999-9991")
+        studentId=intent.getStringExtra("id").toString()
+        studentName=intent.getStringExtra("name").toString()
 
         viewmdel.updateSuccess.observe(this, Observer {
             if (it==true){
+
                 val i =Intent(this,ResultActivity::class.java)
+                i.putExtra("name",studentName)
+                i.putExtra("id",studentId)
                 startActivity(i)
             }else{
                 Toast.makeText(this,"Problem while uploading data.Please Try Again!",Toast.LENGTH_SHORT).show()
@@ -43,8 +50,7 @@ class DataEntryActivity : AppCompatActivity() {
             val sPulse=pulse_entry_et.text.toString()
 
             val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemperature,sPulse)
-            val id=intent.getStringExtra("id")
-            viewmdel.updateDetails(measure,id!!)
+            viewmdel.updateDetails(measure,studentId!!)
 
         }
     }

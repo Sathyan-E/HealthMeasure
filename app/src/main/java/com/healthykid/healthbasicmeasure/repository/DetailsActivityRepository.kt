@@ -33,7 +33,8 @@ class DetailsActivityRepository(val application: Application){
             }
 
             override fun onResponse(call: Call<BasicDetails>, response: Response<BasicDetails>) {
-                    studentDetails.value=response.body()
+                showProgress.value=false
+                studentDetails.value=response.body()
             }
 
         })

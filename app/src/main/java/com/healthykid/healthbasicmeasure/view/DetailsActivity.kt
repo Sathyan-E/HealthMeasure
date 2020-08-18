@@ -3,6 +3,8 @@ package com.healthykid.healthbasicmeasure.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var viewModel:DetailsActivityViewModel
+    var studentName:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
@@ -24,9 +27,12 @@ class DetailsActivity : AppCompatActivity() {
 
         viewModel.showProgress.observe(this , Observer {
             if (it){
-
+                progressbar.visibility=VISIBLE
+                details_layout.visibility= GONE
             }
             else{
+                progressbar.visibility=GONE
+                details_layout.visibility=VISIBLE
 
             }
         })
@@ -34,7 +40,7 @@ class DetailsActivity : AppCompatActivity() {
         viewModel.studentDetails.observe(this, Observer {
             updateUi(it)
            // student_name.text=it.sName
-            Toast.makeText(this,it.sRollNumber,Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,it.sRollNumber,Toast.LENGTH_SHORT).show()
         })
 
 /**
@@ -53,12 +59,14 @@ class DetailsActivity : AppCompatActivity() {
             val uhID=intent.getStringExtra("id")
             val i=Intent(this,DataEntryActivity::class.java)
             i.putExtra("id",uhID)
+            i.putExtra("name",studentName)
             startActivity(i);
         }
     }
 
 
     fun updateUi(x:BasicDetails){
+        studentName= x.sName.toString()
         student_name.text=x.sName
         student_class.text=x.sClass
         student_dob.text=x.sDob
