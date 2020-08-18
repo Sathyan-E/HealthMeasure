@@ -3,55 +3,25 @@ package com.healthykid.healthbasicmeasure.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import android.widget.Toast
-import androidx.lifecycle.Observer
+import android.view.View.*
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.database.*
 import com.healthykid.healthbasicmeasure.R
 import com.healthykid.healthbasicmeasure.modelclass.BasicDetails
-import com.healthykid.healthbasicmeasure.viewmodel.DetailsActivityViewModel
+import com.healthykid.healthbasicmeasure.viewmodel.FetchActivityViewModel
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity() {
-    private lateinit var viewModel:DetailsActivityViewModel
+    private lateinit var viewModel:FetchActivityViewModel
     var studentName:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         val sid=intent.getStringExtra("id")
 
-        viewModel=ViewModelProvider(this).get(DetailsActivityViewModel::class.java)
+        viewModel=ViewModelProvider(this).get(FetchActivityViewModel::class.java)
         //viewModel.getStudentDetails(sid!!)
         val details=intent.getParcelableExtra<BasicDetails>("basicdetails")
         updateUi(details!!)
-      /**
-        viewModel.showProgress.observe(this , Observer {
-            if (it){
-                progressbar.visibility=VISIBLE
-                details_layout.visibility= GONE
-            }
-            else{
-                progressbar.visibility=GONE
-                details_layout.visibility=VISIBLE
-
-            }
-        })
-        **/
-
-
-/**
-        student_name.text=sName
-
-        student_blood.text=intent.getStringExtra("bg")
-        student_class.text=intent.getStringExtra("class")
-        student_dob.text=intent.getStringExtra("dob")
-        student_father.text=intent.getStringExtra("fathername")
-        student_mother.text=intent.getStringExtra("mothername")
-        student_genere.text=intent.getStringExtra("sex")
-        student_rollno.text=intent.getStringExtra("rollno")
-**/
 
         confirm_btn.setOnClickListener {
             val uhID=intent.getStringExtra("id")
@@ -64,6 +34,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
     fun updateUi(x:BasicDetails){
+        progressbar.visibility= INVISIBLE
         studentName= x.sName.toString()
         student_name.text=x.sName
         student_class.text=x.sClass
@@ -83,5 +54,6 @@ class DetailsActivity : AppCompatActivity() {
 
             }
         }
+        details_layout.visibility= VISIBLE
     }
 }

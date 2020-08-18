@@ -13,7 +13,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class DetailsActivityRepository(val application: Application){
+class FetchActivityRepository(val application: Application){
     val showProgress=MutableLiveData<Boolean>()
     val isValidUhID=MutableLiveData<Boolean>()
     val studentDetails=MutableLiveData<BasicDetails>()
@@ -29,7 +29,7 @@ class DetailsActivityRepository(val application: Application){
             override fun onFailure(call: Call<BasicDetails>, t: Throwable) {
                 showProgress.value=false
                 t.message?.let { Log.e("Error", it) }
-                Toast.makeText(application,"Error while getting category list"+ t.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(application,"Problem  occured while getting data.Please Try Again"+ t.message, Toast.LENGTH_SHORT).show()
 
             }
 
@@ -37,7 +37,7 @@ class DetailsActivityRepository(val application: Application){
                 showProgress.value=false
                 if (response.body()==null){
                     isValidUhID.value=false
-                    Toast.makeText(application,"Null Body",Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(application,"Null Body",Toast.LENGTH_SHORT).show()
                 }else{
                     isValidUhID.value=true
                     studentDetails.value=response.body()

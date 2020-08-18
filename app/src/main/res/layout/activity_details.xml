@@ -7,6 +7,7 @@
     tools:context=".view.DetailsActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/details_layout"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:visibility="visible">
