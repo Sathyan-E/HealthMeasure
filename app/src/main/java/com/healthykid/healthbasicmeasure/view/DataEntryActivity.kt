@@ -43,7 +43,8 @@ class DataEntryActivity : AppCompatActivity() {
             val sPulse=pulse_entry_et.text.toString()
 
             val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemperature,sPulse)
-            viewmdel.updateDetails(measure,"999-9999-9991")
+            val id=intent.getStringExtra("id")
+            viewmdel.updateDetails(measure,id!!)
 
         }
     }

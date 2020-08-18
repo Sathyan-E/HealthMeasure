@@ -50,7 +50,9 @@ class DetailsActivity : AppCompatActivity() {
 **/
 
         confirm_btn.setOnClickListener {
+            val uhID=intent.getStringExtra("id")
             val i=Intent(this,DataEntryActivity::class.java)
+            i.putExtra("id",uhID)
             startActivity(i);
         }
     }
