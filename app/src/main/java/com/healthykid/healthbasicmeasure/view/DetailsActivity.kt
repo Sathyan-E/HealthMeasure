@@ -75,5 +75,15 @@ class DetailsActivity : AppCompatActivity() {
         student_father.text=x.sFatherName
         student_mother.text=x.sMotherName
         student_rollno.text=x.sRollNumber
+
+        if(x.isPhotoTaken=="false"){
+            if (x.sSex=="Male"){
+                student_imageview.setImageResource(R.drawable.male1)
+                
+            }else{
+                student_imageview.setImageResource(R.drawable.female1)
+
+            }
+        }
     }
 }
