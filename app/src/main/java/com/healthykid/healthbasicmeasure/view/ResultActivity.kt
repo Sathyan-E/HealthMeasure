@@ -1,6 +1,8 @@
 package com.healthykid.healthbasicmeasure.view
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthykid.healthbasicmeasure.R
@@ -17,6 +19,13 @@ class ResultActivity : AppCompatActivity() {
         result_tv.text=result
         next_btn.setOnClickListener {
             val i=Intent(this,FetchActivity::class.java)
+            startActivity(i)
+        }
+        logout_btn.setOnClickListener {
+            val sharedPreferences=application.getSharedPreferences("UserDetails",Context.MODE_PRIVATE)
+            val editor=sharedPreferences.edit()
+            editor.clear().apply()
+            val i=Intent(this,LoginActivity::class.java)
             startActivity(i)
         }
     }
