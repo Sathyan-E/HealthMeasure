@@ -23,8 +23,10 @@ class DetailsActivity : AppCompatActivity() {
         val sid=intent.getStringExtra("id")
 
         viewModel=ViewModelProvider(this).get(DetailsActivityViewModel::class.java)
-        viewModel.getStudentDetails(sid!!)
-
+        //viewModel.getStudentDetails(sid!!)
+        val details=intent.getParcelableExtra<BasicDetails>("basicdetails")
+        updateUi(details!!)
+      /**
         viewModel.showProgress.observe(this , Observer {
             if (it){
                 progressbar.visibility=VISIBLE
@@ -36,12 +38,8 @@ class DetailsActivity : AppCompatActivity() {
 
             }
         })
+        **/
 
-        viewModel.studentDetails.observe(this, Observer {
-            updateUi(it)
-           // student_name.text=it.sName
-           // Toast.makeText(this,it.sRollNumber,Toast.LENGTH_SHORT).show()
-        })
 
 /**
         student_name.text=sName

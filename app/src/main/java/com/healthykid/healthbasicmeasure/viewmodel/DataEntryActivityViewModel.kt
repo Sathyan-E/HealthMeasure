@@ -9,8 +9,10 @@ import com.healthykid.healthbasicmeasure.repository.DataEntryActivityRepository
 class DataEntryActivityViewModel(application: Application) : AndroidViewModel(application) {
     private  val repository=DataEntryActivityRepository(application)
     val updateSuccess:LiveData<Boolean>
+
     init {
         this.updateSuccess=repository.updateSuccess
+
     }
 
 

@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.database.*
 import com.healthykid.healthbasicmeasure.R
+import com.healthykid.healthbasicmeasure.viewmodel.DetailsActivityViewModel
 import kotlinx.android.synthetic.main.activity_fetch.*
 
 class FetchActivity : AppCompatActivity() {
@@ -18,6 +21,7 @@ class FetchActivity : AppCompatActivity() {
     private  var sRn: String=""
     private  var sSex: String=""
     private  var isphoto: String=""
+    private lateinit var viewModel:DetailsActivityViewModel
 
 
 
@@ -27,15 +31,21 @@ class FetchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fetch)
 
 
-        val ref: DatabaseReference = FirebaseDatabase.getInstance().reference
+        viewModel=ViewModelProvider(this).get(DetailsActivityViewModel::class.java)
+
+        viewModel.studentDetails.observe(this, Observer {
+            val intent=Intent(this,DetailsActivity::class.java)
+            intent.putExtra("basicdetails",it)
+            startActivity(intent)
+
+        })
 
 
         fetch_details_btn.setOnClickListener {
             val uhId=student_uhid_ed.text.toString()
             if (uhId.length>11){
-                val intent=Intent(this,DetailsActivity::class.java)
-                intent.putExtra("id",uhId)
-                startActivity(intent)
+                viewModel.getStudentDetails(uhId)
+
             }else{
                 student_uhid_ed.error="Enter valid UhId"
             }

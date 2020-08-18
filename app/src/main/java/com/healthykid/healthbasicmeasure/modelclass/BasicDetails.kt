@@ -1,10 +1,12 @@
 package com.healthykid.healthbasicmeasure.modelclass
 
 //import com.google.firebase.database.IgnoreExtraProperties
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 
- class BasicDetails {
+ class BasicDetails() :Parcelable {
   @SerializedName("Blood_Group")
   var sBlood: String? = ""
   @SerializedName("Class")
@@ -71,5 +73,85 @@ import com.google.gson.annotations.SerializedName
   var sMedicationName:String?=""
   @SerializedName("Student_regular_medication")
   var sRegularMedication:String?=""
-  
+
+  constructor(parcel: Parcel) : this() {
+   sBlood = parcel.readString()
+   sClass = parcel.readString()
+   sDob = parcel.readString()
+   semergencyContactName = parcel.readString()
+   semergencyContactNo = parcel.readString()
+   semergencyContactRelation = parcel.readString()
+   sfatherbp = parcel.readString()
+   sFatherName = parcel.readString()
+   sFatherphone = parcel.readString()
+   address = parcel.readString()
+   imPhotoTkaen = parcel.readString()
+   lastAuditTaken = parcel.readString()
+   lastBasictaken = parcel.readString()
+   lastColorTaeknOn = parcel.readString()
+   motherBp = parcel.readString()
+   sMotherName = parcel.readString()
+   sMotherphone = parcel.readString()
+   sName = parcel.readString()
+   recordCreated = parcel.readString()
+   sRollNumber = parcel.readString()
+   schoolId = parcel.readString()
+   sSection = parcel.readString()
+   sSex = parcel.readString()
+   isPhotoTaken = parcel.readString()
+   sbehaviourissue = parcel.readString()
+   sKnownAlrgy = parcel.readString()
+   sKnownIllness = parcel.readString()
+   sMedicalCondition = parcel.readString()
+   sMedicationName = parcel.readString()
+   sRegularMedication = parcel.readString()
+  }
+
+  override fun writeToParcel(parcel: Parcel, flags: Int) {
+   parcel.writeString(sBlood)
+   parcel.writeString(sClass)
+   parcel.writeString(sDob)
+   parcel.writeString(semergencyContactName)
+   parcel.writeString(semergencyContactNo)
+   parcel.writeString(semergencyContactRelation)
+   parcel.writeString(sfatherbp)
+   parcel.writeString(sFatherName)
+   parcel.writeString(sFatherphone)
+   parcel.writeString(address)
+   parcel.writeString(imPhotoTkaen)
+   parcel.writeString(lastAuditTaken)
+   parcel.writeString(lastBasictaken)
+   parcel.writeString(lastColorTaeknOn)
+   parcel.writeString(motherBp)
+   parcel.writeString(sMotherName)
+   parcel.writeString(sMotherphone)
+   parcel.writeString(sName)
+   parcel.writeString(recordCreated)
+   parcel.writeString(sRollNumber)
+   parcel.writeString(schoolId)
+   parcel.writeString(sSection)
+   parcel.writeString(sSex)
+   parcel.writeString(isPhotoTaken)
+   parcel.writeString(sbehaviourissue)
+   parcel.writeString(sKnownAlrgy)
+   parcel.writeString(sKnownIllness)
+   parcel.writeString(sMedicalCondition)
+   parcel.writeString(sMedicationName)
+   parcel.writeString(sRegularMedication)
+  }
+
+  override fun describeContents(): Int {
+   return 0
+  }
+
+  companion object CREATOR : Parcelable.Creator<BasicDetails> {
+   override fun createFromParcel(parcel: Parcel): BasicDetails {
+    return BasicDetails(parcel)
+   }
+
+   override fun newArray(size: Int): Array<BasicDetails?> {
+    return arrayOfNulls(size)
+   }
+  }
+
  }

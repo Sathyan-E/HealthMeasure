@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class DetailsActivityRepository(val application: Application){
     val showProgress=MutableLiveData<Boolean>()
+    val isValidUhID=MutableLiveData<Boolean>()
     val studentDetails=MutableLiveData<BasicDetails>()
 
     fun getStudentDetails(id:String){
@@ -34,7 +35,14 @@ class DetailsActivityRepository(val application: Application){
 
             override fun onResponse(call: Call<BasicDetails>, response: Response<BasicDetails>) {
                 showProgress.value=false
-                studentDetails.value=response.body()
+                if (response.body()==null){
+                    isValidUhID.value=false
+                    Toast.makeText(application,"Null Body",Toast.LENGTH_SHORT).show()
+                }else{
+                    isValidUhID.value=true
+                    studentDetails.value=response.body()
+                }
+
             }
 
         })
