@@ -3,6 +3,8 @@ package com.healthykid.healthbasicmeasure.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.healthykid.healthbasicmeasure.R
@@ -26,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         viewmodel.loginSuccess.observe(this, Observer {
-
+            login_progressbar.visibility= INVISIBLE
             if(it=="success"){
                 //viewmodel.saveuserCredentials(userName,userPassword)
                 viewmodel.saveUser.observe(this, Observer {
@@ -45,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         login_btn.setOnClickListener{
+            login_progressbar.visibility=VISIBLE
             userName=login_username_et.text.toString()
             userPassword=login_password_et.text.toString()
             viewmodel.checkCredentials(userName,userPassword)
@@ -62,7 +65,5 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun saveUser(user:String,password:String){
 
-    }
 }
