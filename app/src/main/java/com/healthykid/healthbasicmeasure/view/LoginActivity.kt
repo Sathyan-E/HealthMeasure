@@ -5,8 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -50,19 +49,26 @@ class LoginActivity : AppCompatActivity() {
                 password_error_tv.visibility= VISIBLE
                 login_password_et.error = "Wrong Password"
             }
-            else{
+            else if (it=="username"){
                 userErrorMessage="User Name is Wrong!"
                 usernmae_error_tv.text=userErrorMessage
                 usernmae_error_tv.visibility= VISIBLE
                 login_username_et.error="Wrong User Name"
-
+            }else{
+                userErrorMessage="User Name is Wrong!"
+                passwordErrorMesssage="Password is Wrong!"
+                password_error_tv.text=passwordErrorMesssage
+                usernmae_error_tv.text=userErrorMessage
+                usernmae_error_tv.visibility= VISIBLE
+                password_error_tv.visibility= VISIBLE
             }
         })
 
         login_btn.setOnClickListener{
             if (checkInternet()){
-                login_progressbar.visibility=VISIBLE
+
                 if (login_username_et.text.isNotEmpty() && login_password_et.text.isNotEmpty()){
+                    login_progressbar.visibility=VISIBLE
                     usernmae_error_tv.visibility= INVISIBLE
                     password_error_tv.visibility= INVISIBLE
                     userName=login_username_et.text.toString()
@@ -72,16 +78,29 @@ class LoginActivity : AppCompatActivity() {
                     passwordErrorMesssage="Enter your Password here"
                     password_error_tv.text=passwordErrorMesssage
                     password_error_tv.visibility= VISIBLE
-                }else{
+                }else if(!login_username_et.text.isNotEmpty() && login_password_et.text.isNotEmpty()){
                     userErrorMessage="Enter your username here"
                     usernmae_error_tv.text=userErrorMessage
                     usernmae_error_tv.visibility= VISIBLE
+                }else{
+                    userErrorMessage="Enter Your Username here!"
+                    passwordErrorMesssage="Enter Your Password here!"
+                    usernmae_error_tv.text=userErrorMessage
+                    password_error_tv.text=passwordErrorMesssage
+                    usernmae_error_tv.visibility= VISIBLE
+                    password_error_tv.visibility= VISIBLE
                 }
 
             }else{
+                loginLayout.visibility= GONE
+                internet_layout.visibility= VISIBLE
                 Toast.makeText(this,"Turn on your InternetConnection!",Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        login_refresh_btn.setOnClickListener {
+            refresh()
         }
     }
 
@@ -100,6 +119,14 @@ class LoginActivity : AppCompatActivity() {
         val activeNetwork=connectManager.activeNetworkInfo
         val isConected=activeNetwork?.isConnectedOrConnecting == true
         return isConected
+    }
+    fun refresh(){
+        if (checkInternet()){
+            loginLayout.visibility= VISIBLE
+            internet_layout.visibility= INVISIBLE
+        }else{
+            Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
+        }
     }
 
 

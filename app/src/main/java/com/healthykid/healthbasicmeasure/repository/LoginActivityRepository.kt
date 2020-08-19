@@ -38,8 +38,10 @@ class LoginActivityRepository(val application: Application) {
                    else if(user == userName && password != userPassword){
                        loginSucccess.value="password"
                    }
-                   else{
+                   else if(user!=userName && password==userPassword){
                        loginSucccess.value="username"
+                   }else{
+                       loginSucccess.value="failure"
                    }
 
 
