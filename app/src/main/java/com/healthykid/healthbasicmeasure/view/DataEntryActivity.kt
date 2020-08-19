@@ -193,7 +193,7 @@ class DataEntryActivity : AppCompatActivity() {
         }
         return  false
     }
-    fun checkInternet():Boolean{
+    private fun checkInternet():Boolean{
         val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork=connectManager.activeNetworkInfo
         val isConected=activeNetwork?.isConnectedOrConnecting == true

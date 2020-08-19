@@ -1,10 +1,13 @@
 package com.healthykid.healthbasicmeasure.view
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.healthykid.healthbasicmeasure.R
@@ -47,10 +50,15 @@ class LoginActivity : AppCompatActivity() {
         })
 
         login_btn.setOnClickListener{
-            login_progressbar.visibility=VISIBLE
-            userName=login_username_et.text.toString()
-            userPassword=login_password_et.text.toString()
-            viewmodel.checkCredentials(userName,userPassword)
+            if (checkInternet()){
+                login_progressbar.visibility=VISIBLE
+                userName=login_username_et.text.toString()
+                userPassword=login_password_et.text.toString()
+                viewmodel.checkCredentials(userName,userPassword)
+            }else{
+                Toast.makeText(this,"Turn on your InternetConnection!",Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 
@@ -63,6 +71,12 @@ class LoginActivity : AppCompatActivity() {
         val intent=Intent(this,FetchActivity::class.java)
         startActivity(intent)
 
+    }
+    private fun checkInternet():Boolean{
+        val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork=connectManager.activeNetworkInfo
+        val isConected=activeNetwork?.isConnectedOrConnecting == true
+        return isConected
     }
 
 

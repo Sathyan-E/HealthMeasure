@@ -1,10 +1,13 @@
 package com.healthykid.healthbasicmeasure.view
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.healthykid.healthbasicmeasure.R
@@ -39,16 +42,27 @@ class FetchActivity : AppCompatActivity() {
 
 
         fetch_details_btn.setOnClickListener {
+            if(checkInternet()){
+                val uhId=student_uhid_ed.text.toString()
+                if (uhId.length>11){
+                    fetch_progressbar.visibility=VISIBLE
+                    viewModel.getStudentDetails(uhId)
 
-            val uhId=student_uhid_ed.text.toString()
-            if (uhId.length>11){
-                fetch_progressbar.visibility=VISIBLE
-                viewModel.getStudentDetails(uhId)
-
+                }else{
+                    student_uhid_ed.error="Enter valid UhId"
+                }
             }else{
-                student_uhid_ed.error="Enter valid UhId"
+                Toast.makeText(this,"Turn On Your Internet Connection",Toast.LENGTH_SHORT).show()
             }
 
+
+
         }
+    }
+    private fun checkInternet():Boolean{
+        val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork=connectManager.activeNetworkInfo
+        val isConected=activeNetwork?.isConnectedOrConnecting == true
+        return isConected
     }
 }
