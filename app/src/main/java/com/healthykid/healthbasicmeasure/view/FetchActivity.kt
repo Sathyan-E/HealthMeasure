@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -63,6 +65,24 @@ class FetchActivity : AppCompatActivity() {
         fetch_refresh_btn.setOnClickListener {
             refresh()
         }
+        student_uhid_ed.addTextChangedListener(object :TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+                val length=p0?.length
+                val id=p0.toString()+"-"
+                if (length==3 || length==8){
+                    student_uhid_ed.setText(id)
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+        })
     }
     private fun checkInternet():Boolean{
         val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

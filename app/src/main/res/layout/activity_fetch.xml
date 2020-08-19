@@ -35,7 +35,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="25dp"
             android:hint="@string/uhid_hint"
-            android:inputType="textPhonetic"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

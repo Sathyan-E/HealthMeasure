@@ -56,9 +56,9 @@ class DataEntryActivity : AppCompatActivity() {
 
         upload_details_btn.setOnClickListener {
          if (checkInternet()){
-             dataentry_progressbar.visibility= VISIBLE
                 val isValid=validation()
                 if (isValid){
+                    dataentry_progressbar.visibility= VISIBLE
                     val sBloodPressure= "$sSystol/$sDiastol"
                     val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
                     viewmdel.updateDetails(measure, studentId)
@@ -85,110 +85,148 @@ class DataEntryActivity : AppCompatActivity() {
         var isPulseValid=false
         var isSystolValid=false
         var isDiastolValid=false
+        val invalid="Invalid Input"
+        val empty="Enter Value"
       //  val isWeightValid=false
         if (weight_entry_et.text.toString().isNotEmpty()){
             if (weight_entry_et.text.toString()=="-"){
+                weightError_tv.visibility= INVISIBLE
                 sWeight="-"
                 isWeightValid=true
             }else if (weight_entry_et.text.toString().toInt() in (1..200)){
+                weightError_tv.visibility= INVISIBLE
                 sWeight=weight_entry_et.text.toString()
                 isWeightValid=true
             }
             else{
-                weight_entry_et.error="Invalid Input"
+                weightError_tv.text=invalid
+                weightError_tv.visibility= VISIBLE
+                weight_entry_et.error
                 isWeightValid=false
             }
 
         }
         else{
+            weightError_tv.text=empty
+            weightError_tv.visibility= VISIBLE
             isWeightValid=false
-            weight_entry_et.error="Enter Value"
+            weight_entry_et.error
         }
         //Height Validation
         if (height_entry_et.text.toString().isNotEmpty() ){
             if (height_entry_et.text.toString()=="-"){
+                heightError_tv.visibility= INVISIBLE
+
                 isHeightValid=true
                 sHeight="-"
             }else if(height_entry_et.text.toString().toInt() in (1..250)){
+                heightError_tv.visibility= INVISIBLE
                 isHeightValid=true
                 sHeight=height_entry_et.text.toString()
             }else{
+                heightError_tv.text=invalid
+                heightError_tv.visibility= VISIBLE
                 isHeightValid=false
-                height_entry_et.error="Invalid input"
+                height_entry_et.error
             }
-
         }
         else{
+            heightError_tv.text=empty
+            heightError_tv.visibility= VISIBLE
             isHeightValid=false
-            height_entry_et.error="Enter Value"
+            height_entry_et.error
         }
         //Systol Validation
         if (cistol_et.text.toString().isNotEmpty()){
             if (cistol_et.text.toString()=="-"){
+                pbError_tv.visibility= INVISIBLE
                 isSystolValid=true
                 sSystol="-"
             }else if(cistol_et.text.toString().toInt() in (1..200)){
+                pbError_tv.visibility= INVISIBLE
                 isSystolValid=true
                 sSystol=cistol_et.text.toString()
             }else{
+                pbError_tv.text=invalid
+                pbError_tv.visibility= VISIBLE
                 isSystolValid=false
-                cistol_et.error="Invalid  Input"
+                cistol_et.error
             }
         }
         else{
+            pbError_tv.text=empty
+            pbError_tv.visibility= VISIBLE
             isSystolValid=false
-            cistol_et.error="Enter Value"
+            cistol_et.error
         }
         //Diastol Validation
         if (diastol_et.text.toString().isNotEmpty()){
             if (diastol_et.text.toString()=="-"){
+                pbError_tv.visibility= INVISIBLE
                 isDiastolValid=true
                 sDiastol="-"
             }else if(diastol_et.text.toString().toInt() in (1..200)){
+                pbError_tv.visibility= INVISIBLE
                 isDiastolValid=true
                 sDiastol=diastol_et.text.toString()
             }else{
+                pbError_tv.text=invalid
+                pbError_tv.visibility= VISIBLE
                 isDiastolValid=false
-                diastol_et.error="Invalid Input"
+                diastol_et.error
             }
         }
         else{
+            pbError_tv.text=empty
+            pbError_tv.visibility= VISIBLE
             isDiastolValid=false
-            diastol_et.error="Enter Value"
+            diastol_et.error
         }
         //Temperature Validation
         if (temperature_entry_et.text.toString().isNotEmpty()){
             if (temperature_entry_et.text.toString()=="-"){
+                tempError_tv.visibility= INVISIBLE
                 isTempValid=true
                 sTemp="-"
             }else if (temperature_entry_et.text.toString().toInt() in 1..200){
+                tempError_tv.visibility= INVISIBLE
                 isTempValid=true
                 sTemp=temperature_entry_et.text.toString()
             }else{
+                tempError_tv.text=invalid
+                tempError_tv.visibility= VISIBLE
                 isTempValid=false
-                temperature_entry_et.error="Invalid Input"
+                temperature_entry_et.error
             }
         }
         else{
+            tempError_tv.text=empty
+            tempError_tv.visibility= VISIBLE
             isTempValid=false
-            temperature_entry_et.error="Enter Value"
+            temperature_entry_et.error
         }
         //Pulse Validation
         if (pulse_entry_et.text.toString().isNotEmpty()){
             if (pulse_entry_et.text.toString()=="-"){
+                pulseError_tv.visibility= INVISIBLE
                 isPulseValid=true
                    sPulse="-"
             }else if(pulse_entry_et.text.toString().toInt() in (1..200)){
+                pulseError_tv.visibility= INVISIBLE
                 isPulseValid=true
                 sPulse=pulse_entry_et.text.toString()
             }else{
+                pulseError_tv.text=invalid
+                pulseError_tv.visibility= VISIBLE
                 isPulseValid=false
-                pulse_entry_et.error="InValid Input"
+                pulse_entry_et.error
             }
         }
         else{
+            pulseError_tv.text=empty
+            pulseError_tv.visibility= VISIBLE
             isPulseValid=false
-            pulse_entry_et.error="Enter Value"
+            pulse_entry_et.error
         }
 
         if(isWeightValid && isHeightValid && isPulseValid && isSystolValid && isDiastolValid && isTempValid){
