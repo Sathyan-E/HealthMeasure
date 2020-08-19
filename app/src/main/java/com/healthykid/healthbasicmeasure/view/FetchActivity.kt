@@ -5,8 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +13,7 @@ import com.healthykid.healthbasicmeasure.R
 import com.healthykid.healthbasicmeasure.viewmodel.FetchActivityViewModel
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_fetch.*
+import kotlinx.android.synthetic.main.activity_login.*
 
 class FetchActivity : AppCompatActivity() {
     private lateinit var viewModel:FetchActivityViewModel
@@ -52,11 +52,16 @@ class FetchActivity : AppCompatActivity() {
                     student_uhid_ed.error="Enter valid UhId"
                 }
             }else{
-                Toast.makeText(this,"Turn On Your Internet Connection",Toast.LENGTH_SHORT).show()
+                fetch_internet_layout.visibility= VISIBLE
+                fetchLayout.visibility= GONE
+                refresh()
+                //Toast.makeText(this,"Turn On Your Internet Connection",Toast.LENGTH_SHORT).show()
             }
 
+        }
 
-
+        fetch_refresh_btn.setOnClickListener {
+            refresh()
         }
     }
     private fun checkInternet():Boolean{
@@ -64,5 +69,14 @@ class FetchActivity : AppCompatActivity() {
         val activeNetwork=connectManager.activeNetworkInfo
         val isConected=activeNetwork?.isConnectedOrConnecting == true
         return isConected
+    }
+
+    private fun refresh(){
+        if (checkInternet()){
+            fetchLayout.visibility= VISIBLE
+            fetch_internet_layout.visibility= INVISIBLE
+        }else{
+            Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
+        }
     }
 }

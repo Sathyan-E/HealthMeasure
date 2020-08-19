@@ -6,6 +6,8 @@ import android.icu.util.Measure
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +17,7 @@ import com.healthykid.healthbasicmeasure.R
 import com.healthykid.healthbasicmeasure.modelclass.Measurement
 import com.healthykid.healthbasicmeasure.viewmodel.DataEntryActivityViewModel
 import kotlinx.android.synthetic.main.activity_data_entry.*
+import kotlinx.android.synthetic.main.activity_fetch.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -51,15 +54,7 @@ class DataEntryActivity : AppCompatActivity() {
 
 
         upload_details_btn.setOnClickListener {
-/**
-           =height_entry_et.text
-            val sBloodPressureCistol=cistol_et.text
-            val sBloodDiostol=diastol_et.text.toString()
-            val sTemperature=temperature_entry_et.text
-            val sPulse=pulse_entry_et.text
-            val bloodPressure= "$sBloodPressureCistol/$sBloodDiostol"
-
-**/         if (checkInternet()){
+         if (checkInternet()){
                 val isValid=validation()
                 if (isValid){
                     val sBloodPressure= "$sSystol/$sDiastol"
@@ -67,10 +62,16 @@ class DataEntryActivity : AppCompatActivity() {
                     viewmdel.updateDetails(measure, studentId)
                 }
             }else{
+            dataentryLayout.visibility=GONE
+            dataentry_internet_layout.visibility= VISIBLE
+            refresh()
             Toast.makeText(this,"Turn on Your Network Connection",Toast.LENGTH_SHORT).show()
         }
 
 
+        }
+        dataentry_refresh_btn.setOnClickListener {
+            refresh()
         }
     }
 
@@ -198,5 +199,14 @@ class DataEntryActivity : AppCompatActivity() {
         val activeNetwork=connectManager.activeNetworkInfo
         val isConected=activeNetwork?.isConnectedOrConnecting == true
         return isConected
+    }
+    private fun refresh(){
+        if (checkInternet()){
+            dataentryLayout.visibility= VISIBLE
+            dataentry_internet_layout.visibility= INVISIBLE
+
+        }else{
+            Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
+        }
     }
 }

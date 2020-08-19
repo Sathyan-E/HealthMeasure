@@ -57,6 +57,8 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 userErrorMessage="User Name is Wrong!"
                 passwordErrorMesssage="Password is Wrong!"
+                login_username_et.error="Username is Wrong"
+                login_password_et.error="Password is Wrong"
                 password_error_tv.text=passwordErrorMesssage
                 usernmae_error_tv.text=userErrorMessage
                 usernmae_error_tv.visibility= VISIBLE
@@ -109,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
         viewmodel.checkExistedUser()
     }
 
-    fun goNextScreen(){
+    private fun goNextScreen(){
         val intent=Intent(this,FetchActivity::class.java)
         startActivity(intent)
 
@@ -120,7 +122,7 @@ class LoginActivity : AppCompatActivity() {
         val isConected=activeNetwork?.isConnectedOrConnecting == true
         return isConected
     }
-    fun refresh(){
+    private fun refresh(){
         if (checkInternet()){
             loginLayout.visibility= VISIBLE
             internet_layout.visibility= INVISIBLE
