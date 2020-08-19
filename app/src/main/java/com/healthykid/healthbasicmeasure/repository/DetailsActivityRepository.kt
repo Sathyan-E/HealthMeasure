@@ -13,7 +13,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FetchActivityRepository(val application: Application){
+class DetailsActivityRepository(val application: Application){
     val showProgress=MutableLiveData<Boolean>()
     val isValidUhID=MutableLiveData<Boolean>()
     val studentDetails=MutableLiveData<BasicDetails>()

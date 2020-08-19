@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         tools:context=".view.DataEntryActivity">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,8 +23,16 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
+                android:src="@drawable/male1">
+            </ImageView>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_camera_foreground" />
+
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -55,6 +63,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:hint="Height in cms" />
 
             </LinearLayout>
@@ -77,6 +86,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:hint="weight in kgs" />
 
             </LinearLayout>
@@ -94,12 +104,20 @@
                     android:text="Blood Pressure" />
 
                 <EditText
-                    android:id="@+id/bpressure_entry_et"
+                    android:id="@+id/cistol_et"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:gravity="bottom"
+                    android:inputType="number"
                     android:hint="BP in hgmm" />
+                <EditText
+                    android:id="@+id/diastol_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:inputType="number"
+                    android:hint="Bp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -120,6 +138,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:hint="Temperature in cms" />
 
             </LinearLayout>
@@ -142,6 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:hint="Pulse in .." />
             </LinearLayout>
         </LinearLayout>
