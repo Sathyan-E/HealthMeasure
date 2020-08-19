@@ -1,7 +1,9 @@
 package com.healthykid.healthbasicmeasure.view
 
+import android.content.Context
 import android.content.Intent
 import android.icu.util.Measure
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -56,12 +58,18 @@ class DataEntryActivity : AppCompatActivity() {
             val sTemperature=temperature_entry_et.text
             val sPulse=pulse_entry_et.text
             val bloodPressure= "$sBloodPressureCistol/$sBloodDiostol"
-**/         val isValid=validation()
-            if (isValid){
-                val sBloodPressure= "$sSystol/$sDiastol"
-                val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
-                viewmdel.updateDetails(measure, studentId)
-            }
+
+**/         if (checkInternet()){
+                val isValid=validation()
+                if (isValid){
+                    val sBloodPressure= "$sSystol/$sDiastol"
+                    val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
+                    viewmdel.updateDetails(measure, studentId)
+                }
+            }else{
+            Toast.makeText(this,"Turn on Your Network Connection",Toast.LENGTH_SHORT).show()
+        }
+
 
         }
     }
@@ -184,5 +192,11 @@ class DataEntryActivity : AppCompatActivity() {
             return  true
         }
         return  false
+    }
+    fun checkInternet():Boolean{
+        val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork=connectManager.activeNetworkInfo
+        val isConected=activeNetwork?.isConnectedOrConnecting == true
+        return isConected
     }
 }
