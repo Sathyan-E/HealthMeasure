@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +66,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:layout_weight="1"
-                        android:inputType="number"
-                        android:hint="Height in cms" />
+                        android:hint="Height in cms"
+                        android:inputType="number" />
 
                 </LinearLayout>
 
@@ -89,8 +89,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:layout_weight="1"
-                        android:inputType="number"
-                        android:hint="weight in kgs" />
+                        android:hint="weight in kgs"
+                        android:inputType="number" />
 
                 </LinearLayout>
 
@@ -112,15 +112,16 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
                         android:gravity="bottom"
-                        android:inputType="number"
-                        android:hint="BP in hgmm" />
+                        android:hint="BP in hgmm"
+                        android:inputType="number" />
+
                     <EditText
                         android:id="@+id/diastol_et"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
-                        android:inputType="number"
-                        android:hint="Bp"/>
+                        android:hint="Bp"
+                        android:inputType="number" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -141,8 +142,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:layout_weight="1"
-                        android:inputType="number"
-                        android:hint="Temperature in cms" />
+                        android:hint="Temperature in cms"
+                        android:inputType="number" />
 
                 </LinearLayout>
 
@@ -164,8 +165,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:inputType="number"
-                        android:hint="Pulse in .." />
+                        android:hint="Pulse in .."
+                        android:inputType="number" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -174,14 +175,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="161dp"
-                android:layout_marginLeft="161dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginEnd="162dp"
-                android:layout_marginRight="162dp"
                 android:text="Upload"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+            <ProgressBar
+                android:id="@+id/dataentry_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="181dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="182dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                tools:visibility="visible" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

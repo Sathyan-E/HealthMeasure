@@ -42,12 +42,13 @@ class DataEntryActivity : AppCompatActivity() {
 
         viewmdel.updateSuccess.observe(this, Observer {
             if (it==true){
-
+                dataentry_progressbar.visibility= INVISIBLE
                 val i =Intent(this,ResultActivity::class.java)
                 i.putExtra("name",studentName)
                 i.putExtra("id",studentId)
                 startActivity(i)
             }else{
+                dataentry_progressbar.visibility= INVISIBLE
                 Toast.makeText(this,"Problem while uploading data.Please Try Again!",Toast.LENGTH_SHORT).show()
             }
         })
@@ -55,6 +56,7 @@ class DataEntryActivity : AppCompatActivity() {
 
         upload_details_btn.setOnClickListener {
          if (checkInternet()){
+             dataentry_progressbar.visibility= VISIBLE
                 val isValid=validation()
                 if (isValid){
                     val sBloodPressure= "$sSystol/$sDiastol"
