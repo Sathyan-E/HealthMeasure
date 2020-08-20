@@ -11,6 +11,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.View.*
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -61,6 +62,7 @@ class DataEntryActivity : AppCompatActivity() {
 
 
         upload_details_btn.setOnClickListener {
+            hideKeyboard()
              if (checkInternet()){
                     val isValid=validation()
                     if (isValid){
@@ -178,7 +180,6 @@ class DataEntryActivity : AppCompatActivity() {
         if (height_entry_et.text.toString().isNotEmpty() ){
             if (height_entry_et.text.toString()=="-"){
                 heightError_tv.visibility= INVISIBLE
-
                 isHeightValid=true
                 sHeight="-"
             }else if(height_entry_et.text.toString().toInt() in (1..250)){
@@ -309,6 +310,14 @@ class DataEntryActivity : AppCompatActivity() {
 
         }else{
             Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun hideKeyboard(){
+        val view=this.currentFocus
+        view?.let {
+            val v=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            v?.hideSoftInputFromWindow(it.windowToken,0)
         }
     }
 }

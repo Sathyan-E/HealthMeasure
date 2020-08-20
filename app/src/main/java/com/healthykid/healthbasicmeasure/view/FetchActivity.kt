@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
+import android.view.View
 import android.view.View.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -51,6 +54,7 @@ class FetchActivity : AppCompatActivity() {
 
 
         fetch_details_btn.setOnClickListener {
+            hideKeyboard()
 
             if(checkInternet()){
                 val uhId=uhidEditText.text.toString()
@@ -82,8 +86,21 @@ class FetchActivity : AppCompatActivity() {
                 fetch_error_tv.visibility= INVISIBLE
                 val length=p0?.length
                 val id=p0.toString()+"-"
-                if (length==3 || length==8){
-                   // student_uhid_ed.setText(student_uhid_ed.text.insert(4,"-"))
+              /**
+                uhidEditText.setOnKeyListener ( object:OnKeyListener{
+                    override fun onKey(p0: View?, p1: Int, p2: KeyEvent?): Boolean {
+                     //   if (p1 == p2.KEYCODE_DEL )
+                    }
+
+                } )
+                **/
+                if (length==3){
+                    uhidEditText.setText(id)
+                    uhidEditText.setSelection(4)
+                }
+                else if (length==8){
+                    uhidEditText.setText(id)
+                    uhidEditText.setSelection(9)
                 }
             }
         })
@@ -108,5 +125,12 @@ class FetchActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         fetch_progressbar.visibility= INVISIBLE
+    }
+    private fun hideKeyboard(){
+        val view=this.currentFocus
+        view?.let {
+            val v=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            v?.hideSoftInputFromWindow(it.windowToken,0)
+        }
     }
 }

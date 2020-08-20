@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -69,6 +70,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         login_btn.setOnClickListener{
+            hideKeyboard()
             if (checkInternet()){
 
                 if (login_username_et.text!!.isNotEmpty() && login_password_et.text!!.isNotEmpty()){
@@ -153,6 +155,13 @@ class LoginActivity : AppCompatActivity() {
             internet_layout.visibility= INVISIBLE
         }else{
             Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
+        }
+    }
+    fun hideKeyboard(){
+        val view=this.currentFocus
+        view?.let {
+            val v=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            v?.hideSoftInputFromWindow(it.windowToken,0)
         }
     }
 

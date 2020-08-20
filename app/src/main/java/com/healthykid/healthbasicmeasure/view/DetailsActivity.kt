@@ -24,11 +24,12 @@ class DetailsActivity : AppCompatActivity() {
         updateUi(details!!)
 
         confirm_btn.setOnClickListener {
-            val uhID=intent.getStringExtra("id")
+
             val i=Intent(this,DataEntryActivity::class.java)
-            i.putExtra("id",uhID)
+            i.putExtra("id",sid)
             i.putExtra("name",studentName)
             startActivity(i);
+
         }
     }
 
@@ -48,10 +49,8 @@ class DetailsActivity : AppCompatActivity() {
         if(x.isPhotoTaken=="false"){
             if (x.sSex=="Male"){
                 student_imageview.setImageResource(R.drawable.male1)
-                
             }else{
                 student_imageview.setImageResource(R.drawable.female1)
-
             }
         }
         details_layout.visibility= VISIBLE
