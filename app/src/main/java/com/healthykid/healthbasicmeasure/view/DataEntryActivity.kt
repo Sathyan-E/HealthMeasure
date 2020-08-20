@@ -87,7 +87,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-               heightError_tv.visibility= INVISIBLE
+               heightError_tv.visibility= GONE
             }
 
         })
@@ -97,7 +97,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    weightError_tv.visibility= INVISIBLE
+                    weightError_tv.visibility= GONE
             }
         })
         cistol_et.addTextChangedListener(object:TextWatcher{
@@ -106,7 +106,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                pbError_tv.visibility= INVISIBLE
+                pbError_tv.visibility= GONE
             }
         })
         diastol_et.addTextChangedListener(object:TextWatcher{
@@ -115,7 +115,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                pbError_tv.visibility= INVISIBLE
+                pbError_tv.visibility= GONE
             }
         })
         temperature_entry_et.addTextChangedListener(object:TextWatcher{
@@ -124,7 +124,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                tempError_tv.visibility= INVISIBLE
+                tempError_tv.visibility= GONE
             }
         })
         pulse_entry_et.addTextChangedListener(object:TextWatcher{
@@ -133,7 +133,7 @@ class DataEntryActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                pulseError_tv.visibility= INVISIBLE
+                pulseError_tv.visibility= GONE
             }
 
         })

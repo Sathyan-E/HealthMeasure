@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -69,18 +71,18 @@ class LoginActivity : AppCompatActivity() {
         login_btn.setOnClickListener{
             if (checkInternet()){
 
-                if (login_username_et.text.isNotEmpty() && login_password_et.text.isNotEmpty()){
+                if (login_username_et.text!!.isNotEmpty() && login_password_et.text!!.isNotEmpty()){
                     login_progressbar.visibility=VISIBLE
                     usernmae_error_tv.visibility= INVISIBLE
                     password_error_tv.visibility= INVISIBLE
                     userName=login_username_et.text.toString()
                     userPassword=login_password_et.text.toString()
                     viewmodel.checkCredentials(userName,userPassword)
-                }else if(login_username_et.text.isNotEmpty() && !login_password_et.text.isNotEmpty()){
+                }else if(login_username_et.text!!.isNotEmpty() && !login_password_et.text!!.isNotEmpty()){
                     passwordErrorMesssage="Enter your Password here"
                     password_error_tv.text=passwordErrorMesssage
                     password_error_tv.visibility= VISIBLE
-                }else if(!login_username_et.text.isNotEmpty() && login_password_et.text.isNotEmpty()){
+                }else if(!login_username_et.text!!.isNotEmpty() && login_password_et.text!!.isNotEmpty()){
                     userErrorMessage="Enter your username here"
                     usernmae_error_tv.text=userErrorMessage
                     usernmae_error_tv.visibility= VISIBLE
@@ -104,6 +106,28 @@ class LoginActivity : AppCompatActivity() {
         login_refresh_btn.setOnClickListener {
             refresh()
         }
+
+        login_username_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+               usernmae_error_tv.visibility= GONE
+            }
+
+        })
+
+        login_password_et.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+              password_error_tv.visibility= GONE
+            }
+
+        })
     }
 
     override fun onResume() {
@@ -114,6 +138,7 @@ class LoginActivity : AppCompatActivity() {
     private fun goNextScreen(){
         val intent=Intent(this,FetchActivity::class.java)
         startActivity(intent)
+        finish()
 
     }
     private fun checkInternet():Boolean{

@@ -17,20 +17,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/login_username_et"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginusernameinputlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="172dp"
-            android:layout_marginEnd="14dp"
-            android:hint="@string/user_name"
-            android:inputType="text|textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="100dp"
+            android:hint="User Name"
+            app:boxStrokeColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_username_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="80dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginpasswordinputlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="Password"
+            app:boxStrokeColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@+id/usernmae_error_tv">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_password_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="80dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
         <TextView
             android:id="@+id/usernmae_error_tv"
@@ -38,24 +68,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="5dp"
+            android:gravity="right"
             android:visibility="invisible"
+            android:textColor="@color/darkred"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_username_et" />
+            app:layout_constraintTop_toBottomOf="@+id/loginusernameinputlayout" />
 
-        <EditText
-            android:id="@+id/login_password_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="14dp"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_username_et" />
 
         <TextView
             android:id="@+id/password_error_tv"
@@ -64,21 +83,23 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="5dp"
             android:visibility="invisible"
+            android:gravity="right"
+            android:textColor="@color/darkred"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
+            app:layout_constraintTop_toBottomOf="@+id/loginpasswordinputlayout" />
 
         <Button
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/login"
+            android:layout_marginTop="25dp"
             android:background="@drawable/button"
+            android:text="@string/login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
+            app:layout_constraintTop_toBottomOf="@+id/password_error_tv" />
 
         <ProgressBar
             android:id="@+id/login_progressbar"
@@ -91,6 +112,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

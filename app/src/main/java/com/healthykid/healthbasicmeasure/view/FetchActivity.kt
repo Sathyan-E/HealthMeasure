@@ -11,6 +11,7 @@ import android.view.View.*
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.textfield.TextInputEditText
 import com.healthykid.healthbasicmeasure.R
 import com.healthykid.healthbasicmeasure.viewmodel.FetchActivityViewModel
 import kotlinx.android.synthetic.main.activity_details.*
@@ -19,10 +20,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class FetchActivity : AppCompatActivity() {
     private lateinit var viewModel:FetchActivityViewModel
+    private lateinit var uhidEditText:TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fetch)
+
+        uhidEditText=findViewById(R.id.student_uhid_ed)
 
         viewModel=ViewModelProvider(this).get(FetchActivityViewModel::class.java)
 
@@ -37,7 +41,6 @@ class FetchActivity : AppCompatActivity() {
         viewModel.isValidUhid.observe(this, Observer {
             if (it==false){
                fetch_progressbar.visibility= INVISIBLE
-                student_uhid_ed.error
                 fetch_error_tv.text="Invalid UHID"
                 fetch_error_tv.visibility= VISIBLE
             }else{
@@ -50,13 +53,12 @@ class FetchActivity : AppCompatActivity() {
         fetch_details_btn.setOnClickListener {
 
             if(checkInternet()){
-                val uhId=student_uhid_ed.text.toString()
+                val uhId=uhidEditText.text.toString()
                 if (uhId.length>11){
                     fetch_progressbar.visibility=VISIBLE
                     viewModel.getStudentDetails(uhId)
 
                 }else{
-                    student_uhid_ed.error
                     fetch_error_tv.text="Invalid UHID"
                     fetch_error_tv.visibility= VISIBLE
                 }
@@ -72,7 +74,7 @@ class FetchActivity : AppCompatActivity() {
         fetch_refresh_btn.setOnClickListener {
             refresh()
         }
-        student_uhid_ed.addTextChangedListener(object :TextWatcher{
+        uhidEditText.addTextChangedListener(object :TextWatcher{
             override fun afterTextChanged(p0: Editable?) {}
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 

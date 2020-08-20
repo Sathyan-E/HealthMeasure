@@ -39,110 +39,178 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-                <EditText
-                    android:id="@+id/height_entry_et"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/heightinputlayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:hint="Height in cms"
-                    android:inputType="number" />
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    app:boxStrokeColor="@android:color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/height_entry_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="5dp"
+                        android:hint="Height in cms"
+                        android:inputType="number" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/heightError_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    tools:visibility="visible"/>
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
-                <EditText
-                    android:id="@+id/weight_entry_et"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/weightinputlayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:hint="weight in kgs"
-                    android:inputType="number" />
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    app:boxStrokeColor="@android:color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/weight_entry_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="5dp"
+                        android:hint="weight in kgs"
+                        android:inputType="number" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/weightError_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    tools:visibility="visible"/>
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/cistol_et"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Systolinputlayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.5"
-                        android:gravity="bottom"
-                        android:hint="Systolic value in mmHg"
-                        android:inputType="number" />
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint=""
+                        app:boxStrokeColor="@android:color/white">
 
-                    <EditText
-                        android:id="@+id/diastol_et"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cistol_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:gravity="bottom"
+                            android:hint="Systolic in mmHg"
+                            android:inputType="number" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/diastolinputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.5"
-                        android:hint="Diastolic in mmHg"
-                        android:inputType="number" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint=""
+                        app:boxStrokeColor="@android:color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/diastol_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:hint="Diastolic in mmHg"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/pbError_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    tools:visibility="visible"/>
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
-                <EditText
-                    android:id="@+id/temperature_entry_et"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/temperatureinputlayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:hint="Temperature in cms"
-                    android:inputType="number" />
+                    android:hint=""
+                    app:boxStrokeColor="@android:color/white">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/temperature_entry_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="5dp"
+                        android:hint="Temperature in cms"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/tempError_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    tools:visibility="visible"/>
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
-
-                <EditText
-                    android:id="@+id/pulse_entry_et"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pulseinputlayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:hint="Pulse in Bpm"
-                    android:inputType="number" />
+                    android:hint=""
+                    app:boxStrokeColor="@android:color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pulse_entry_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="5dp"
+                        android:hint="Pulse in Bpm"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/pulseError_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    tools:visibility="visible"/>
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
