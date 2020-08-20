@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGreen"
+    android:background="@color/lightGreen"
     tools:context=".view.FetchActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,18 +30,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/student_uhid_ed"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/student_uhidinputlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="25dp"
-            android:hint="@string/uhid_hint"
-            android:textColorHint="@android:color/white"
-            android:inputType="textPhonetic"
+            android:layout_marginTop="20dp"
+            app:boxStrokeColor="@android:color/white"
+            android:hint="Student UHId"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/student_uhid_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/fetch_error_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="end"
+            android:layout_marginHorizontal="15dp"
+            android:textColor="@color/darkred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/student_uhidinputlayout" />
 
         <Button
             android:id="@+id/fetch_details_btn"
@@ -50,8 +69,11 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="50dp"
             android:text="@string/fetch_btn"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:theme="@style/button"
             android:background="@drawable/button"
-            app:layout_constraintTop_toBottomOf="@+id/student_uhid_ed"
+            app:layout_constraintTop_toBottomOf="@+id/student_uhidinputlayout"
             tools:layout_editor_absoluteX="161dp" />
 
         <ProgressBar
@@ -63,7 +85,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/student_uhid_ed" />
+            app:layout_constraintTop_toBottomOf="@+id/student_uhidinputlayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

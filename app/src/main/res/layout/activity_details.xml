@@ -32,6 +32,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="78dp"
@@ -39,22 +40,25 @@
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Name:" />
+
                 <TextView
                     android:id="@+id/student_name"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Name:" />
             </LinearLayout>
 
@@ -62,19 +66,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Class:" />
 
                 <TextView
                     android:id="@+id/student_class"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Class:" />
 
 
@@ -85,12 +90,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Roll No:" />
+
                 <TextView
                     android:id="@+id/student_rollno"
                     android:layout_width="0dp"
@@ -105,18 +112,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="sex:" />
+
                 <TextView
                     android:id="@+id/student_genere"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="sex:" />
 
             </LinearLayout>
@@ -126,19 +135,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
 
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="DOB:" />
+
                 <TextView
                     android:id="@+id/student_dob"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="DOB:" />
             </LinearLayout>
 
@@ -146,18 +157,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="Blood Type:" />
+
                 <TextView
                     android:id="@+id/student_blood"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Blood Type:" />
             </LinearLayout>
 
@@ -166,18 +179,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Father Name" />
+
                 <TextView
                     android:id="@+id/student_father"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Father Name" />
             </LinearLayout>
 
@@ -185,39 +200,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:text="Mother Name" />
+
                 <TextView
                     android:id="@+id/student_mother"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:text="Mother Name" />
             </LinearLayout>
-
 
 
         </LinearLayout>
 
         <Button
             android:id="@+id/confirm_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
-            android:layout_marginLeft="161dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginRight="162dp"
-            android:layout_marginBottom="25dp"
-            android:text="Continue"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="Continue"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            tools:layout_editor_absoluteX="15dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

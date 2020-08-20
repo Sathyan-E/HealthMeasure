@@ -6,6 +6,8 @@ import android.icu.util.Measure
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.View.*
 import android.view.WindowManager
@@ -19,6 +21,7 @@ import com.healthykid.healthbasicmeasure.modelclass.Measurement
 import com.healthykid.healthbasicmeasure.viewmodel.DataEntryActivityViewModel
 import kotlinx.android.synthetic.main.activity_data_entry.*
 import kotlinx.android.synthetic.main.activity_fetch.*
+import org.w3c.dom.Text
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -58,26 +61,82 @@ class DataEntryActivity : AppCompatActivity() {
 
 
         upload_details_btn.setOnClickListener {
-         if (checkInternet()){
-                val isValid=validation()
-                if (isValid){
-                    dataentry_progressbar.visibility= VISIBLE
-                    val sBloodPressure= "$sSystol/$sDiastol"
-                    val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
-                    viewmdel.updateDetails(measure, studentId)
-                }
-            }else{
-            dataentryLayout.visibility=GONE
-            dataentry_internet_layout.visibility= VISIBLE
-            refresh()
-            Toast.makeText(this,"Turn on Your Network Connection",Toast.LENGTH_SHORT).show()
-        }
-
+             if (checkInternet()){
+                    val isValid=validation()
+                    if (isValid){
+                        dataentry_progressbar.visibility= VISIBLE
+                        val sBloodPressure= "$sSystol/$sDiastol"
+                        val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
+                        viewmdel.updateDetails(measure, studentId)
+                    }
+                }else{
+                dataentryLayout.visibility=GONE
+                dataentry_internet_layout.visibility= VISIBLE
+                refresh()
+                Toast.makeText(this,"Turn on Your Network Connection",Toast.LENGTH_SHORT).show()
+            }
 
         }
         dataentry_refresh_btn.setOnClickListener {
             refresh()
         }
+
+        height_entry_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+               heightError_tv.visibility= INVISIBLE
+            }
+
+        })
+        weight_entry_et.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    weightError_tv.visibility= INVISIBLE
+            }
+        })
+        cistol_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                pbError_tv.visibility= INVISIBLE
+            }
+        })
+        diastol_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                pbError_tv.visibility= INVISIBLE
+            }
+        })
+        temperature_entry_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                tempError_tv.visibility= INVISIBLE
+            }
+        })
+        pulse_entry_et.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                pulseError_tv.visibility= INVISIBLE
+            }
+
+        })
     }
 
     fun validation():Boolean{

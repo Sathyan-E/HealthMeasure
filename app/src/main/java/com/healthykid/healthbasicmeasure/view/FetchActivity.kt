@@ -37,13 +37,18 @@ class FetchActivity : AppCompatActivity() {
         viewModel.isValidUhid.observe(this, Observer {
             if (it==false){
                fetch_progressbar.visibility= INVISIBLE
-                student_uhid_ed.error="UhId is not valid."
+                student_uhid_ed.error
+                fetch_error_tv.text="Invalid UHID"
+                fetch_error_tv.visibility= VISIBLE
+            }else{
+                fetch_error_tv.visibility= INVISIBLE
             }
 
         })
 
 
         fetch_details_btn.setOnClickListener {
+
             if(checkInternet()){
                 val uhId=student_uhid_ed.text.toString()
                 if (uhId.length>11){
@@ -51,7 +56,9 @@ class FetchActivity : AppCompatActivity() {
                     viewModel.getStudentDetails(uhId)
 
                 }else{
-                    student_uhid_ed.error="Enter valid UhId"
+                    student_uhid_ed.error
+                    fetch_error_tv.text="Invalid UHID"
+                    fetch_error_tv.visibility= VISIBLE
                 }
             }else{
                 fetch_internet_layout.visibility= VISIBLE
@@ -66,23 +73,19 @@ class FetchActivity : AppCompatActivity() {
             refresh()
         }
         student_uhid_ed.addTextChangedListener(object :TextWatcher{
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
+            override fun afterTextChanged(p0: Editable?) {}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                fetch_error_tv.visibility= INVISIBLE
                 val length=p0?.length
                 val id=p0.toString()+"-"
                 if (length==3 || length==8){
                    // student_uhid_ed.setText(student_uhid_ed.text.insert(4,"-"))
                 }
             }
-
         })
+
     }
     private fun checkInternet():Boolean{
         val connectManager=this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -98,5 +101,10 @@ class FetchActivity : AppCompatActivity() {
         }else{
             Toast.makeText(this,"No InternetConnection!",Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetch_progressbar.visibility= INVISIBLE
     }
 }

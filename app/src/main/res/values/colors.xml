@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary">#689739</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="splashBackground">#FFFFFF</color>
-    <color name="darkGreen">#689739</color>
-    <color name="lightGreen">#8bc24c</color>
+    <color name="darkGreen">#8bc24c</color>
+    <color name="lightGreen">#689739</color>
     <color name="yellow">#ffeb3c</color>
+    <color name="darkred">#FF0000</color>
+    <color name="gold">#b29700</color>
+
 </resources>
