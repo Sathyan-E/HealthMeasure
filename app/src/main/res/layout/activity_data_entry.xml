@@ -3,10 +3,12 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/darkGreen"
         tools:context=".view.DataEntryActivity">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dataentryLayout"
@@ -217,6 +219,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginEnd="162dp"
                 android:text="Upload"
+                android:background="@drawable/button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
@@ -240,7 +243,7 @@
         <LinearLayout
             android:id="@+id/dataentry_internet_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="70dp"
             android:orientation="vertical"
             android:gravity="center"

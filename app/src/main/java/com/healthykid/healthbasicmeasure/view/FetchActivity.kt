@@ -67,11 +67,7 @@ class FetchActivity : AppCompatActivity() {
         }
         student_uhid_ed.addTextChangedListener(object :TextWatcher{
             override fun afterTextChanged(p0: Editable?) {
-                val length=p0?.length
-                val id=p0.toString()+"-"
-                if (length==3 || length==8){
-                    student_uhid_ed.setText(id)
-                }
+
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -79,7 +75,11 @@ class FetchActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+                val length=p0?.length
+                val id=p0.toString()+"-"
+                if (length==3 || length==8){
+                   // student_uhid_ed.setText(student_uhid_ed.text.insert(4,"-"))
+                }
             }
 
         })

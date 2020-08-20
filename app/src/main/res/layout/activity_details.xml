@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/darkGreen"
     tools:context=".view.DetailsActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/details_layout"
@@ -212,7 +213,8 @@
             android:layout_marginEnd="162dp"
             android:layout_marginRight="162dp"
             android:layout_marginBottom="25dp"
-            android:text="Upload"
+            android:text="Continue"
+            android:background="@drawable/button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

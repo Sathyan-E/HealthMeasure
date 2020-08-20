@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.*
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -34,6 +35,8 @@ class DataEntryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_entry)
+
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         val viewmdel=ViewModelProvider(this).get(DataEntryActivityViewModel::class.java)
 
       //  ref=FirebaseDatabase.getInstance().reference.child("BasicHealthInfo").child("999-9999-9991")

@@ -11,9 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.ResultActivity"></activity>
-        <activity android:name=".view.DataEntryActivity" />
+        <activity android:name=".view.DataEntryActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
         <activity android:name=".view.DetailsActivity" />
-        <activity android:name=".view.FetchActivity" />
+        <activity android:name=".view.FetchActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan"/>
         <activity
             android:name=".view.SplashActivity"
             android:theme="@style/splashScreenTheme">
@@ -23,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.LoginActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan"/>
     </application>
 
 </manifest>
