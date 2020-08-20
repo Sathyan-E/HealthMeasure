@@ -20,6 +20,7 @@ import com.healthykid.healthbasicmeasure.viewmodel.FetchActivityViewModel
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_fetch.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlin.properties.Delegates
 
 class FetchActivity : AppCompatActivity() {
     private lateinit var viewModel:FetchActivityViewModel
@@ -84,24 +85,7 @@ class FetchActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 fetch_error_tv.visibility= INVISIBLE
-                val length=p0?.length
-                val id=p0.toString()+"-"
-              /**
-                uhidEditText.setOnKeyListener ( object:OnKeyListener{
-                    override fun onKey(p0: View?, p1: Int, p2: KeyEvent?): Boolean {
-                     //   if (p1 == p2.KEYCODE_DEL )
-                    }
 
-                } )
-                **/
-                if (length==3){
-                    uhidEditText.setText(id)
-                    uhidEditText.setSelection(4)
-                }
-                else if (length==8){
-                    uhidEditText.setText(id)
-                    uhidEditText.setSelection(9)
-                }
             }
         })
 
@@ -130,7 +114,7 @@ class FetchActivity : AppCompatActivity() {
         val view=this.currentFocus
         view?.let {
             val v=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            v?.hideSoftInputFromWindow(it.windowToken,0)
+            v.hideSoftInputFromWindow(it.windowToken,0)
         }
     }
 }

@@ -58,8 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Name:" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -79,8 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Class:" />
+                    android:layout_weight="1" />
 
 
             </LinearLayout>
@@ -103,8 +101,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Roll No:" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
 
@@ -118,15 +115,14 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="sex:" />
+                    android:text="Gender :" />
 
                 <TextView
                     android:id="@+id/student_genere"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="sex:" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -149,8 +145,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="DOB:" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -170,8 +165,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Blood Type:" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
 
@@ -192,8 +186,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Father Name" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -213,8 +206,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Mother Name" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
 

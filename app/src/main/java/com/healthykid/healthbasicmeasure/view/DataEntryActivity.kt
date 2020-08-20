@@ -43,7 +43,6 @@ class DataEntryActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         val viewmdel=ViewModelProvider(this).get(DataEntryActivityViewModel::class.java)
 
-      //  ref=FirebaseDatabase.getInstance().reference.child("BasicHealthInfo").child("999-9999-9991")
         studentId=intent.getStringExtra("id").toString()
         studentName=intent.getStringExtra("name").toString()
 
@@ -90,6 +89,7 @@ class DataEntryActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                heightError_tv.visibility= GONE
+
             }
 
         })
@@ -211,14 +211,12 @@ class DataEntryActivity : AppCompatActivity() {
                 sSystol=cistol_et.text.toString()
             }else{
                 pbError_tv.text=invalid
-                pbError_tv.visibility= VISIBLE
                 isSystolValid=false
-                cistol_et.error
+                cistol_et.error=invalid
             }
         }
         else{
             pbError_tv.text=empty
-            pbError_tv.visibility= VISIBLE
             isSystolValid=false
             cistol_et.error
         }
@@ -234,16 +232,12 @@ class DataEntryActivity : AppCompatActivity() {
                 sDiastol=diastol_et.text.toString()
             }else{
                 pbError_tv.text=invalid
-                pbError_tv.visibility= VISIBLE
                 isDiastolValid=false
-                diastol_et.error
             }
         }
         else{
             pbError_tv.text=empty
-            pbError_tv.visibility= VISIBLE
             isDiastolValid=false
-            diastol_et.error
         }
         //Temperature Validation
         if (temperature_entry_et.text.toString().isNotEmpty()){
@@ -291,7 +285,9 @@ class DataEntryActivity : AppCompatActivity() {
             isPulseValid=false
             pulse_entry_et.error
         }
-
+        if (!isDiastolValid || !isSystolValid){
+            pbError_tv.visibility= VISIBLE
+        }
         if(isWeightValid && isHeightValid && isPulseValid && isSystolValid && isDiastolValid && isTempValid){
             return  true
         }
@@ -317,7 +313,7 @@ class DataEntryActivity : AppCompatActivity() {
         val view=this.currentFocus
         view?.let {
             val v=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            v?.hideSoftInputFromWindow(it.windowToken,0)
+            v.hideSoftInputFromWindow(it.windowToken,0)
         }
     }
 }

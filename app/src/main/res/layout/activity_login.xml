@@ -31,6 +31,7 @@
                 android:id="@+id/login_username_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:layout_marginHorizontal="5dp"
                 tools:layout_editor_absoluteX="10dp"
                 tools:layout_editor_absoluteY="80dp" />
@@ -52,6 +53,7 @@
                 android:id="@+id/login_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:layout_marginHorizontal="5dp"
                 tools:layout_editor_absoluteX="10dp"
                 tools:layout_editor_absoluteY="80dp" />

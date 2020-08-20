@@ -15,7 +15,7 @@ class ResultActivity : AppCompatActivity() {
 
         val id=intent.getStringExtra("id")
         val name=intent.getStringExtra("name")
-        val result="The details of ${name} - ${id} is uploaded to our database successfully.You can move on to next student."
+        val result="The details of $name are uploaded to our database successfully.You can move on to next student."
         result_tv.text=result
         next_btn.setOnClickListener {
             val i=Intent(this,FetchActivity::class.java)

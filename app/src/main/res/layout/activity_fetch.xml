@@ -46,6 +46,8 @@
                 android:id="@+id/student_uhid_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="xxx-xxxx-xxxx"
                 android:layout_marginHorizontal="5dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="50dp"
-            android:text="@string/fetch_btn"
+            android:text="Check"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:theme="@style/button"

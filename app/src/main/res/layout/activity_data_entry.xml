@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/darkGreen"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
@@ -14,36 +15,19 @@
             android:id="@+id/dataentryLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <FrameLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/male1">
-                </ImageView>
-
-
-            </FrameLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/heightinputlayout"
@@ -71,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     tools:visibility="visible" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -100,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     tools:visibility="visible" />
 
 
@@ -113,8 +97,8 @@
                         android:id="@+id/Systolinputlayout"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:hint=""
                         app:boxStrokeColor="@android:color/white">
 
@@ -123,7 +107,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
-                            android:gravity="bottom"
+                            android:gravity="center"
                             android:hint="Systolic in mmHg"
                             android:inputType="number" />
 
@@ -155,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     tools:visibility="visible" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -172,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="5dp"
-                        android:hint="Temperature in cms"
+                        android:hint="Temperature"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     tools:visibility="visible" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -209,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:textColor="@color/darkred"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     tools:visibility="visible" />
 
             </LinearLayout>
@@ -218,12 +202,15 @@
                 android:id="@+id/upload_details_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="14dp"
                 android:background="@drawable/button"
                 android:text="Upload"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-                tools:layout_editor_absoluteX="161dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
             <ProgressBar
                 android:id="@+id/dataentry_progressbar"
@@ -245,9 +232,9 @@
             android:id="@+id/dataentry_internet_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="70dp"
-            android:orientation="vertical"
+            android:layout_marginTop="200dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -268,9 +255,6 @@
                 android:text="Refresh" />
 
         </LinearLayout>
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
