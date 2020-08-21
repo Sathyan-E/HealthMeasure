@@ -27,6 +27,7 @@ class ResultActivity : AppCompatActivity() {
             editor.clear().apply()
             val i=Intent(this,LoginActivity::class.java)
             startActivity(i)
+            finish()
         }
     }
 }
