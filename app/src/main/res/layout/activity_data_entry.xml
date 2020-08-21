@@ -44,7 +44,7 @@
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="5dp"
                         android:hint="Height in cms"
-                        android:inputType="number" />
+                        android:inputType="numberDecimal" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +73,7 @@
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="5dp"
                         android:hint="weight in kgs"
-                        android:inputType="number" />
+                        android:inputType="numberDecimal" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +107,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
-                            android:gravity="center"
                             android:hint="Systolic in mmHg"
                             android:inputType="number" />
 
@@ -156,8 +155,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:layout_marginHorizontal="5dp"
-                        android:hint="Temperature"
-                        android:inputType="number" />
+                        android:hint="Temperature in F"
+                        android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView

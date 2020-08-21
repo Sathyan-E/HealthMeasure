@@ -46,7 +46,7 @@
                 android:id="@+id/student_uhid_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="phone"
                 android:hint="xxx-xxxx-xxxx"
                 android:layout_marginHorizontal="5dp"/>
         </com.google.android.material.textfield.TextInputLayout>

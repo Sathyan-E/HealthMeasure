@@ -66,8 +66,13 @@ class DataEntryActivity : AppCompatActivity() {
                     val isValid=validation()
                     if (isValid){
                         dataentry_progressbar.visibility= VISIBLE
-                        val sBloodPressure= "$sSystol/$sDiastol"
-                        val measure=Measurement(sHeight,sWeight,sBloodPressure,sTemp,sPulse)
+                        val sBloodPressurevalue= "$sSystol/$sDiastol mmHg"
+                        val sHeightValue="$sHeight cm"
+                        val sWeightValue="$sWeight kg"
+                        val sTempValue="$sTemp F"
+                        val sPulseValue="$sPulse per Min"
+
+                        val measure=Measurement(sHeightValue,sWeightValue,sBloodPressurevalue,sTempValue,sPulseValue)
                         viewmdel.updateDetails(measure, studentId)
                     }
                 }else{
@@ -157,7 +162,7 @@ class DataEntryActivity : AppCompatActivity() {
                 weightError_tv.visibility= INVISIBLE
                 sWeight="-"
                 isWeightValid=true
-            }else if (weight_entry_et.text.toString().toInt() in (1..200)){
+            }else if (weight_entry_et.text.toString().toFloat() in (5.0..200.0)){
                 weightError_tv.visibility= INVISIBLE
                 sWeight=weight_entry_et.text.toString()
                 isWeightValid=true
@@ -182,7 +187,7 @@ class DataEntryActivity : AppCompatActivity() {
                 heightError_tv.visibility= INVISIBLE
                 isHeightValid=true
                 sHeight="-"
-            }else if(height_entry_et.text.toString().toInt() in (1..250)){
+            }else if(height_entry_et.text.toString().toFloat() in (10.0..250.0)){
                 heightError_tv.visibility= INVISIBLE
                 isHeightValid=true
                 sHeight=height_entry_et.text.toString()
@@ -205,7 +210,7 @@ class DataEntryActivity : AppCompatActivity() {
                 pbError_tv.visibility= INVISIBLE
                 isSystolValid=true
                 sSystol="-"
-            }else if(cistol_et.text.toString().toInt() in (1..200)){
+            }else if(cistol_et.text.toString().toInt() in (80..141)){
                 pbError_tv.visibility= INVISIBLE
                 isSystolValid=true
                 sSystol=cistol_et.text.toString()
@@ -226,7 +231,7 @@ class DataEntryActivity : AppCompatActivity() {
                 pbError_tv.visibility= INVISIBLE
                 isDiastolValid=true
                 sDiastol="-"
-            }else if(diastol_et.text.toString().toInt() in (1..200)){
+            }else if(diastol_et.text.toString().toInt() in (50..100)){
                 pbError_tv.visibility= INVISIBLE
                 isDiastolValid=true
                 sDiastol=diastol_et.text.toString()
@@ -245,7 +250,7 @@ class DataEntryActivity : AppCompatActivity() {
                 tempError_tv.visibility= INVISIBLE
                 isTempValid=true
                 sTemp="-"
-            }else if (temperature_entry_et.text.toString().toInt() in 1..200){
+            }else if (temperature_entry_et.text.toString().toFloat() in 93.0..104.0){
                 tempError_tv.visibility= INVISIBLE
                 isTempValid=true
                 sTemp=temperature_entry_et.text.toString()
