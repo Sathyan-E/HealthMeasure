@@ -37,6 +37,8 @@ class FetchActivity : AppCompatActivity() {
         viewModel.studentDetails.observe(this, Observer {
             fetch_progressbar.visibility== INVISIBLE
             val intent=Intent(this,DetailsActivity::class.java)
+            val uhId=uhidEditText.text.toString()
+            intent.putExtra("id",uhId)
             intent.putExtra("basicdetails",it)
             startActivity(intent)
 

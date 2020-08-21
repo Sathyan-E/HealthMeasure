@@ -20,14 +20,16 @@ class ResultActivity : AppCompatActivity() {
         next_btn.setOnClickListener {
             val i=Intent(this,FetchActivity::class.java)
             startActivity(i)
+            finishAffinity()
         }
+
         logout_btn.setOnClickListener {
             val sharedPreferences=application.getSharedPreferences("UserDetails",Context.MODE_PRIVATE)
             val editor=sharedPreferences.edit()
             editor.clear().apply()
             val i=Intent(this,LoginActivity::class.java)
             startActivity(i)
-            finish()
+            finishAffinity()
         }
     }
 }

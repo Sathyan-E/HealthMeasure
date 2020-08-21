@@ -16,7 +16,8 @@ import com.healthykid.healthbasicmeasure.R
 import com.healthykid.healthbasicmeasure.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+class
+LoginActivity : AppCompatActivity() {
     var userName:String=""
     var userPassword:String=""
     var userErrorMessage:String=""
